@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+body {
+    margin: 0;
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 73, 121, 1) 55%, rgba(0, 212, 255, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    color: azure;
+}
+
+.combo {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(97, 97, 97);
+    outline: 1px solid #333;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.combo_text {
+    font-family: 'PT Sans', arial;
+    font-size: 60px;
+    line-height: 60px;
+    height: 60px;
+    color: rgb(236, 236, 236);
+    margin: 0 8px 0 8px;
+}
+
+.combo_valign_center {
+    align-self: center;
+}
+
+.combo_space {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.combo_special_hit {
+    border-radius: 22px;
+    border: 6px solid #818181;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    font-family: Times New Roman;
+    font-size: 30px;
+    padding: 0px 10px;
+    margin: 0px 2px 0px 2px;
+    text-decoration: none;
+}
+
+.combo_special_hit_lh {
+    background-color: #FF7B00;
+}
+
+.combo_special_hit_re {
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(154, 255, 215, 1) 37%, rgba(255, 241, 129, 1) 100%);
+}
+
+.combo_special_hit_sc {
+    background: linear-gradient(90deg, rgba(39, 207, 230, 1) 15%, rgba(255, 255, 255, 1) 50%, rgba(39, 207, 230, 1) 85%);
+}
+
+.combo_special_hit_gi {
+    background-color: #8aeb1b;
+}
+
+.combo_special_hit_ch {
+    background-color: yellow;
+}
+
+.combo_special_hit_gb {
+    background-color: rgb(247, 40, 85);
+}
+
+.combo_special_hit_wohrohsky {
+    background-color: #D2B4DE;
+}
+
+.combo_special_hit_test {
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(244, 105, 105, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
