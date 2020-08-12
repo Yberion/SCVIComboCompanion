@@ -21,19 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package scvicombocompagnon;
+package fr.brandon.scvicombocompagnon.combo.implementation;
 
-import org.tinylog.Logger;
+import fr.brandon.scvicombocompagnon.combo.api.Combo;
 
-public class Main
+public final class ComboImpl implements Combo
 {
-    public String getGreeting()
-    {
-        return "Hello world.";
-    }
-
-    public static void main(String[] args)
-    {
-        Logger.info(new Main().getGreeting());
-    }
 }

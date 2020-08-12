@@ -21,18 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package scvicombocompagnon;
+package fr.brandon.scvicombocompagnon.combo.api;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
-class MainTest
+public interface Combo
 {
-    @Test
-    void mainHasAGreeting()
-    {
-        Main classUnderTest = new Main();
-        assertNotNull(classUnderTest.getGreeting(), "main should have a greeting");
-    }
 }

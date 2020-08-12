@@ -53,7 +53,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'scvicombocompagnon.Main'
+    mainClassName = 'fr.brandon.scvicombocompagnon.Main'
 }
 
 test {
@@ -70,11 +70,11 @@ spotless {
         endWithNewline()
     }
     java {
-        licenseHeaderFile 'src/resources/spotless/license/LICENSE.spotless'
+        licenseHeaderFile 'resources/spotless/license/LICENSE.spotless'
 
         importOrder()
         removeUnusedImports()
 
-        eclipse().configFile('src/resources/eclipse/formatter/Brandon_Java.xml')
+        eclipse().configFile('resources/eclipse/formatter/Brandon_Java.xml')
     }
 }
