@@ -21,9 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.hit.api;
+package fr.brandon.scvicombocompagnon.combo.api;
 
-public interface Hit
+import fr.brandon.scvicombocompagnon.hit.api.Hit;
+import java.util.List;
+
+public interface Combos
 {
-    String getName();
+    List<Hit> getCombo();
 }

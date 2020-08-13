@@ -70,11 +70,11 @@ spotless {
         endWithNewline()
     }
     java {
-        licenseHeaderFile 'resources/spotless/license/LICENSE.spotless'
+        licenseHeaderFile 'src/main/resources/spotless/license/LICENSE.spotless'
 
         importOrder()
         removeUnusedImports()
 
-        eclipse().configFile('resources/eclipse/formatter/Brandon_Java.xml')
+        eclipse().configFile('src/main/resources/eclipse/formatter/Brandon_Java.xml')
     }
 }

@@ -24,7 +24,32 @@
 package fr.brandon.scvicombocompagnon.hit.implementation;
 
 import fr.brandon.scvicombocompagnon.hit.api.Hit;
+import java.io.IOException;
+import java.util.Objects;
 
 public final class HitImpl implements Hit
 {
+    private final String name;
+
+    private HitImpl(String name)
+    {
+        this.name = name;
+    }
+
+    public static HitImpl create(String name) throws IOException
+    {
+        Objects.requireNonNull(name, "name shouldn't be null");
+
+        if (name.isBlank())
+        {
+            throw new IllegalArgumentException("name shouldn't be empty or only contain spaces");
+        }
+        return new HitImpl(name);
+    }
+
+    @Override
+    public String getName()
+    {
+        return this.name;
+    }
 }

@@ -25,4 +25,5 @@ package fr.brandon.scvicombocompagnon.hit.api;
 
 public interface HitImage
 {
+    String getName();
 }

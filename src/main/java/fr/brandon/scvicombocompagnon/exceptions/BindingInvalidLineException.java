@@ -21,10 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.combo.implementation;
+package fr.brandon.scvicombocompagnon.exceptions;
 
-import fr.brandon.scvicombocompagnon.combo.api.Combo;
-
-public final class ComboImpl implements Combo
+public class BindingInvalidLineException extends Exception
 {
+    private static final long serialVersionUID = -715163184613588729L;
+
+    public BindingInvalidLineException()
+    {
+        super();
+    }
+
+    public BindingInvalidLineException(String message)
+    {
+        super(message);
+    }
 }

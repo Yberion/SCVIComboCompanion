@@ -30,9 +30,8 @@ import org.junit.jupiter.api.Test;
 class MainTest
 {
     @Test
-    void mainHasAGreeting()
+    void empty()
     {
-        Main classUnderTest = new Main();
-        assertNotNull(classUnderTest.getGreeting(), "main should have a greeting");
+        // empty for now
     }
 }

@@ -23,7 +23,10 @@
  */
 package fr.brandon.scvicombocompagnon.binding.api;
 
+import fr.brandon.scvicombocompagnon.hit.api.Hit;
+import fr.brandon.scvicombocompagnon.hit.api.HitImage;
+
 public interface Binding
 {
-    String getImageFromHit(String hit);
+    HitImage getImageFromHit(Hit hit);
 }

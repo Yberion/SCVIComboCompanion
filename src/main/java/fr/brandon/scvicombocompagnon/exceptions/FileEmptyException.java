@@ -21,8 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.combo.api;
+package fr.brandon.scvicombocompagnon.exceptions;
 
-public interface Combo
+import java.io.IOException;
+
+public class FileEmptyException extends IOException
 {
+    private static final long serialVersionUID = 3436653509997586472L;
+
+    public FileEmptyException()
+    {
+        super();
+    }
+
+    public FileEmptyException(String message)
+    {
+        super(message);
+    }
 }

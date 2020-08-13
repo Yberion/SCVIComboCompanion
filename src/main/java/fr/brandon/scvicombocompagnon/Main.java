@@ -23,21 +23,18 @@
  */
 package fr.brandon.scvicombocompagnon;
 
-import fr.brandon.scvicombocompagnon.binding.api.Binding;
-import fr.brandon.scvicombocompagnon.binding.implementation.BindingImpl;
+import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
 import java.io.IOException;
 import org.tinylog.Logger;
 
 public class Main
 {
-    public String getGreeting()
+    private Main()
     {
-        return "Hello world.";
     }
 
-    public static void main(String... args) throws IOException
+    public static void main(String... args) throws IOException, BindingInvalidLineException
     {
-        Logger.info(new Main().getGreeting());
-        Binding binding = BindingImpl.create("binding.txt");
+        Logger.info("Hi");
     }
 }

@@ -21,9 +21,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.hit.api;
+package fr.brandon.scvicombocompagnon.combo.implementation;
 
-public interface Hit
+import fr.brandon.scvicombocompagnon.combo.api.Combos;
+import fr.brandon.scvicombocompagnon.hit.api.Hit;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public final class CombosImpl implements Combos
 {
-    String getName();
+    private final List<Hit> combo;
+
+    public CombosImpl()
+    {
+        this.combo = new ArrayList<>();
+    }
+
+    @Override
+    public List<Hit> getCombo()
+    {
+        return Collections.unmodifiableList(this.combo);
+    }
 }

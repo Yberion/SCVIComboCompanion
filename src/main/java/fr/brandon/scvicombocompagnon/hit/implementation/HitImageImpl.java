@@ -24,7 +24,32 @@
 package fr.brandon.scvicombocompagnon.hit.implementation;
 
 import fr.brandon.scvicombocompagnon.hit.api.HitImage;
+import java.io.IOException;
+import java.util.Objects;
 
 public final class HitImageImpl implements HitImage
 {
+    private final String name;
+
+    private HitImageImpl(String name)
+    {
+        this.name = name;
+    }
+
+    public static HitImageImpl create(String name) throws IOException
+    {
+        Objects.requireNonNull(name, "name shouldn't be null");
+
+        if (name.isBlank())
+        {
+            throw new IllegalArgumentException("name shouldn't be empty or only contain spaces");
+        }
+        return new HitImageImpl(name);
+    }
+
+    @Override
+    public String getName()
+    {
+        return this.name;
+    }
 }

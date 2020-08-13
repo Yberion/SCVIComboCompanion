@@ -24,26 +24,30 @@
 package fr.brandon.scvicombocompagnon.binding.implementation;
 
 import fr.brandon.scvicombocompagnon.binding.api.Binding;
+import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
+import fr.brandon.scvicombocompagnon.exceptions.FileEmptyException;
 import fr.brandon.scvicombocompagnon.hit.api.Hit;
 import fr.brandon.scvicombocompagnon.hit.api.HitImage;
+import fr.brandon.scvicombocompagnon.hit.implementation.*;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.tinylog.Logger;
 
 public final class BindingImpl implements Binding
 {
-    private static final String PATH = "resources\\soulcaliburvi\\";
+    private static BindingImpl instance;
+    private static final String RESOURCES_PATH = "resources\\soulcaliburvi\\";
     private final Map<Hit, HitImage> binding;
 
-    private BindingImpl(String fileName) throws IOException
+    private BindingImpl(String fileName) throws IOException, BindingInvalidLineException
     {
         this.binding = new HashMap<>();
-        File fileToParse = new File(PATH + fileName);
+        File fileToParse = new File(RESOURCES_PATH + fileName);
         String line;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileToParse)))
@@ -51,25 +55,49 @@ public final class BindingImpl implements Binding
 
             while ((line = reader.readLine()) != null)
             {
-                Logger.info(line);
+
+                if (!line.contains("="))
+                {
+                    throw new BindingInvalidLineException("The line might contain \"=\"");
+                }
+                // [0] = image name
+                // [1] = hit name
+                String[] splittedLine = line.split("=");
+                this.binding.put(HitImpl.create(splittedLine[1]), HitImageImpl.create(splittedLine[1]));
             }
         }
     }
 
-    public static BindingImpl create(String fileName) throws IOException
+    public synchronized static BindingImpl getInstance(String fileName) throws IOException, BindingInvalidLineException
     {
         Objects.requireNonNull(fileName, "fileName shouldn't be null");
 
         if (fileName.isBlank())
         {
-            throw new IllegalArgumentException("Filename shouldn't be empty or only contain spaces");
+            throw new IllegalArgumentException("fileName shouldn't be empty or only contain spaces");
         }
-        return new BindingImpl(fileName);
+        File tmpTestFile = new File(RESOURCES_PATH + fileName);
+
+        if (!tmpTestFile.exists())
+        {
+            throw new FileNotFoundException("File not found");
+        }
+
+        if (tmpTestFile.length() <= 0)
+        {
+            throw new FileEmptyException("File is empty");
+        }
+
+        if (instance == null)
+        {
+            instance = new BindingImpl(fileName);
+        }
+        return instance;
     }
 
     @Override
-    public String getImageFromHit(String hit)
+    public HitImage getImageFromHit(Hit hit)
     {
-        return null;
+        return this.binding.get(hit);
     }
 }
