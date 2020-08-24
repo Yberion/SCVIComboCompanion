@@ -21,14 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.binding.api;
+package fr.brandon.scvicombocompagnon.combo.implementation;
 
+import fr.brandon.scvicombocompagnon.combo.api.Combo;
 import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import fr.brandon.scvicombocompagnon.hit.api.HitImage;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
-public interface Binding
+public final class ComboImpl implements Combo
 {
-    HitImage getImageFromHit(Hit hit);
+    private final List<Hit> combo;
 
-    boolean isHitValid(Hit hit);
+    public ComboImpl()
+    {
+        this.combo = new ArrayList<>();
+    }
+
+    @Override
+    public List<Hit> getHits()
+    {
+        return Collections.unmodifiableList(this.combo);
+    }
+
+    @Override
+    public void addHit(Hit hit)
+    {
+        Objects.requireNonNull(hit);
+        this.combo.add(hit);
+    }
 }

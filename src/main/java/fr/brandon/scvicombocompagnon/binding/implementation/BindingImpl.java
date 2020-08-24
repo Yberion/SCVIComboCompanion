@@ -25,29 +25,26 @@ package fr.brandon.scvicombocompagnon.binding.implementation;
 
 import fr.brandon.scvicombocompagnon.binding.api.Binding;
 import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
-import fr.brandon.scvicombocompagnon.exceptions.FileEmptyException;
 import fr.brandon.scvicombocompagnon.hit.api.Hit;
 import fr.brandon.scvicombocompagnon.hit.api.HitImage;
 import fr.brandon.scvicombocompagnon.hit.implementation.*;
+import fr.brandon.scvicombocompagnon.utils.Files;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public final class BindingImpl implements Binding
 {
     private static BindingImpl instance;
-    private static final String RESOURCES_PATH = "resources\\soulcaliburvi\\";
     private final Map<Hit, HitImage> binding;
 
     private BindingImpl(String fileName) throws IOException, BindingInvalidLineException
     {
         this.binding = new HashMap<>();
-        File fileToParse = new File(RESOURCES_PATH + fileName);
+        File fileToParse = new File(Files.SC_BINDING_PATH + fileName);
         String line;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileToParse)))
@@ -63,30 +60,15 @@ public final class BindingImpl implements Binding
                 // [0] = image name
                 // [1] = hit name
                 String[] splittedLine = line.split("=");
-                this.binding.put(HitImpl.create(splittedLine[1]), HitImageImpl.create(splittedLine[1]));
+                this.binding.put(HitImpl.create(splittedLine[1]), HitImageImpl.create(splittedLine[0]));
             }
         }
     }
 
-    public synchronized static BindingImpl getInstance(String fileName) throws IOException, BindingInvalidLineException
+    // TODO: Rework, what if we load a binding and want to load another one later ? (answer: we can't right now)
+    public static synchronized BindingImpl getInstance(String fileName) throws IOException, BindingInvalidLineException
     {
-        Objects.requireNonNull(fileName, "fileName shouldn't be null");
-
-        if (fileName.isBlank())
-        {
-            throw new IllegalArgumentException("fileName shouldn't be empty or only contain spaces");
-        }
-        File tmpTestFile = new File(RESOURCES_PATH + fileName);
-
-        if (!tmpTestFile.exists())
-        {
-            throw new FileNotFoundException("File not found");
-        }
-
-        if (tmpTestFile.length() <= 0)
-        {
-            throw new FileEmptyException("File is empty");
-        }
+        Files.checkValidity(Files.SC_BINDING_PATH + fileName);
 
         if (instance == null)
         {
@@ -99,5 +81,11 @@ public final class BindingImpl implements Binding
     public HitImage getImageFromHit(Hit hit)
     {
         return this.binding.get(hit);
+    }
+
+    @Override
+    public boolean isHitValid(Hit hit)
+    {
+        return this.binding.containsKey(hit);
     }
 }

@@ -21,14 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.binding.api;
+package fr.brandon.scvicombocompagnon.utils;
 
-import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import fr.brandon.scvicombocompagnon.hit.api.HitImage;
-
-public interface Binding
+public final class Strings
 {
-    HitImage getImageFromHit(Hit hit);
+    private Strings()
+    {
+        throw new IllegalStateException("Utility class");
+    }
 
-    boolean isHitValid(Hit hit);
+    public static boolean isNumeric(String strNum)
+    {
+
+        if (strNum == null)
+        {
+            return false;
+        }
+
+        try
+        {
+            Integer.parseInt(strNum);
+        }
+        catch (NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
 }

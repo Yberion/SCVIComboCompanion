@@ -23,18 +23,25 @@
  */
 package fr.brandon.scvicombocompagnon;
 
+import fr.brandon.scvicombocompagnon.combo.api.Combos;
+import fr.brandon.scvicombocompagnon.combo.implementation.CombosImpl;
 import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
+import fr.brandon.scvicombocompagnon.html.api.Html;
+import fr.brandon.scvicombocompagnon.html.impl.HtmlImpl;
+import fr.brandon.scvicombocompagnon.utils.Files;
 import java.io.IOException;
-import org.tinylog.Logger;
 
 public class Main
 {
-    private Main()
-    {
-    }
-
     public static void main(String... args) throws IOException, BindingInvalidLineException
     {
-        Logger.info("Hi");
+        Html html = new HtmlImpl();
+
+        for (String file : Files.listFilesInDirectory(Files.SC_COMBOS_PATH))
+        {
+            Combos combos = new CombosImpl();
+            combos.loadCombosFromFile(file);
+            html.make(combos);
+        }
     }
 }

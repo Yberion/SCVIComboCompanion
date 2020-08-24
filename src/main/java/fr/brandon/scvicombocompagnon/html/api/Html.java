@@ -21,14 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.binding.api;
+package fr.brandon.scvicombocompagnon.html.api;
 
-import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import fr.brandon.scvicombocompagnon.hit.api.HitImage;
+import fr.brandon.scvicombocompagnon.combo.api.Combos;
+import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
+import java.io.IOException;
 
-public interface Binding
+public interface Html
 {
-    HitImage getImageFromHit(Hit hit);
-
-    boolean isHitValid(Hit hit);
+    void make(Combos combos) throws IOException, BindingInvalidLineException;
 }

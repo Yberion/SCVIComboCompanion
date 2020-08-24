@@ -23,10 +23,17 @@
  */
 package fr.brandon.scvicombocompagnon.combo.api;
 
-import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import java.util.List;
+import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
+import java.io.IOException;
+import java.util.Set;
 
 public interface Combos
 {
-    List<Hit> getCombo();
+    Set<Combo> getCombos();
+
+    String getComboFileName();
+
+    void addCombo(Combo combo);
+
+    void loadCombosFromFile(String fileName) throws IOException, BindingInvalidLineException;
 }

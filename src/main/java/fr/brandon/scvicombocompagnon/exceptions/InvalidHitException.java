@@ -21,14 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.binding.api;
+package fr.brandon.scvicombocompagnon.exceptions;
 
-import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import fr.brandon.scvicombocompagnon.hit.api.HitImage;
+import java.io.IOException;
 
-public interface Binding
+public class InvalidHitException extends IOException
 {
-    HitImage getImageFromHit(Hit hit);
+    private static final long serialVersionUID = 42478400128804079L;
 
-    boolean isHitValid(Hit hit);
+    public InvalidHitException()
+    {
+        super();
+    }
+
+    public InvalidHitException(String message)
+    {
+        super(message);
+    }
 }

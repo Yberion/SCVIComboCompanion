@@ -39,11 +39,10 @@ public final class HitImpl implements Hit
     public static HitImpl create(String name) throws IOException
     {
         Objects.requireNonNull(name, "name shouldn't be null");
-
-        if (name.isBlank())
-        {
-            throw new IllegalArgumentException("name shouldn't be empty or only contain spaces");
-        }
+        //if (name.isBlank())
+        //{
+        //   throw new IllegalArgumentException("name shouldn't be empty or only contain spaces");
+        //}
         return new HitImpl(name);
     }
 
@@ -51,5 +50,28 @@ public final class HitImpl implements Hit
     public String getName()
     {
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+
+        if (this == o)
+        {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass())
+        {
+            return false;
+        }
+        HitImpl that = (HitImpl) o;
+        return Objects.equals(this.name, that.name);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(this.name);
     }
 }

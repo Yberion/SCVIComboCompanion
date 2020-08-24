@@ -21,14 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.binding.api;
+package fr.brandon.scvicombocompagnon.combo.api;
 
 import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import fr.brandon.scvicombocompagnon.hit.api.HitImage;
+import java.util.List;
 
-public interface Binding
+public interface Combo
 {
-    HitImage getImageFromHit(Hit hit);
+    List<Hit> getHits();
 
-    boolean isHitValid(Hit hit);
+    void addHit(Hit hit);
 }

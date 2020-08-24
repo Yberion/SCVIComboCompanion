@@ -23,24 +23,81 @@
  */
 package fr.brandon.scvicombocompagnon.combo.implementation;
 
+import fr.brandon.scvicombocompagnon.binding.implementation.BindingImpl;
+import fr.brandon.scvicombocompagnon.combo.api.Combo;
 import fr.brandon.scvicombocompagnon.combo.api.Combos;
+import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
+import fr.brandon.scvicombocompagnon.exceptions.InvalidHitException;
 import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import java.util.ArrayList;
+import fr.brandon.scvicombocompagnon.hit.implementation.HitImpl;
+import fr.brandon.scvicombocompagnon.utils.Files;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Collections;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public final class CombosImpl implements Combos
 {
-    private final List<Hit> combo;
+    private final Set<Combo> combos;
+    private String comboFileName = "combos";
 
     public CombosImpl()
     {
-        this.combo = new ArrayList<>();
+        this.combos = new LinkedHashSet<>();
     }
 
     @Override
-    public List<Hit> getCombo()
+    public Set<Combo> getCombos()
     {
-        return Collections.unmodifiableList(this.combo);
+        return Collections.unmodifiableSet(this.combos);
+    }
+
+    @Override
+    public String getComboFileName()
+    {
+        return this.comboFileName;
+    }
+
+    @Override
+    public void addCombo(Combo combo)
+    {
+        Objects.requireNonNull(combo);
+        this.combos.add(combo);
+    }
+
+    @Override
+    public void loadCombosFromFile(String fileName) throws IOException, BindingInvalidLineException
+    {
+        Files.checkValidity(Files.SC_COMBOS_PATH + fileName);
+        this.comboFileName = fileName.split("\\.")[0];
+        File fileCombos = new File(Files.SC_COMBOS_PATH + fileName);
+        String line;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileCombos)))
+        {
+
+            while ((line = reader.readLine()) != null)
+            {
+                String[] tmpHitNames = line.split(",");
+                Combo tmpCombo = new ComboImpl();
+
+                for (String hitName : tmpHitNames)
+                {
+                    Hit tmpHit = HitImpl.create(hitName);
+
+                    // HitName starting with { mean text
+                    if (!hitName.startsWith("{") && !BindingImpl.getInstance("binding.txt").isHitValid(tmpHit))
+                    {
+                        throw new InvalidHitException("Invalid hit: " + hitName);
+                    }
+                    tmpCombo.addHit(tmpHit);
+                }
+                this.combos.add(tmpCombo);
+            }
+        }
     }
 }
