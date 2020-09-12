@@ -1,7 +1,7 @@
 /*
  * MIT License
  * 
- * Copyright (c) 2020 Brandon, SCVIComboCompagnon
+ * Copyright (c) 2020 Brandon, SCVIComboCompanion
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,9 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.combo.api;
+package fr.brandon.scvicombocompanion.combo.api;
 
-import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
+import fr.brandon.scvicombocompanion.exceptions.BindingInvalidLineException;
 import java.io.IOException;
 import java.util.Set;
 

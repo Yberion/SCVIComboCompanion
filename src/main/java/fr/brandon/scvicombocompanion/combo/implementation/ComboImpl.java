@@ -1,7 +1,7 @@
 /*
  * MIT License
  * 
- * Copyright (c) 2020 Brandon, SCVIComboCompagnon
+ * Copyright (c) 2020 Brandon, SCVIComboCompanion
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,10 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.combo.implementation;
+package fr.brandon.scvicombocompanion.combo.implementation;
 
-import fr.brandon.scvicombocompagnon.combo.api.Combo;
-import fr.brandon.scvicombocompagnon.hit.api.Hit;
+import fr.brandon.scvicombocompanion.combo.api.Combo;
+import fr.brandon.scvicombocompanion.hit.api.Hit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

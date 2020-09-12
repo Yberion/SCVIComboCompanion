@@ -1,7 +1,7 @@
 /*
  * MIT License
  * 
- * Copyright (c) 2020 Brandon, SCVIComboCompagnon
+ * Copyright (c) 2020 Brandon, SCVIComboCompanion
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,16 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.html.impl;
+package fr.brandon.scvicombocompanion.html.impl;
 
-import fr.brandon.scvicombocompagnon.binding.implementation.BindingImpl;
-import fr.brandon.scvicombocompagnon.combo.api.Combo;
-import fr.brandon.scvicombocompagnon.combo.api.Combos;
-import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
-import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import fr.brandon.scvicombocompagnon.html.api.Html;
-import fr.brandon.scvicombocompagnon.utils.Files;
-import fr.brandon.scvicombocompagnon.utils.Strings;
+import fr.brandon.scvicombocompanion.binding.implementation.BindingImpl;
+import fr.brandon.scvicombocompanion.combo.api.Combo;
+import fr.brandon.scvicombocompanion.combo.api.Combos;
+import fr.brandon.scvicombocompanion.exceptions.BindingInvalidLineException;
+import fr.brandon.scvicombocompanion.hit.api.Hit;
+import fr.brandon.scvicombocompanion.html.api.Html;
+import fr.brandon.scvicombocompanion.utils.Files;
+import fr.brandon.scvicombocompanion.utils.Strings;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

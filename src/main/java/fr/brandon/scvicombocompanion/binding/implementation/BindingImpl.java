@@ -1,7 +1,7 @@
 /*
  * MIT License
  * 
- * Copyright (c) 2020 Brandon, SCVIComboCompagnon
+ * Copyright (c) 2020 Brandon, SCVIComboCompanion
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,14 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package fr.brandon.scvicombocompagnon.binding.implementation;
+package fr.brandon.scvicombocompanion.binding.implementation;
 
-import fr.brandon.scvicombocompagnon.binding.api.Binding;
-import fr.brandon.scvicombocompagnon.exceptions.BindingInvalidLineException;
-import fr.brandon.scvicombocompagnon.hit.api.Hit;
-import fr.brandon.scvicombocompagnon.hit.api.HitImage;
-import fr.brandon.scvicombocompagnon.hit.implementation.*;
-import fr.brandon.scvicombocompagnon.utils.Files;
+import fr.brandon.scvicombocompanion.binding.api.Binding;
+import fr.brandon.scvicombocompanion.exceptions.BindingInvalidLineException;
+import fr.brandon.scvicombocompanion.hit.api.Hit;
+import fr.brandon.scvicombocompanion.hit.api.HitImage;
+import fr.brandon.scvicombocompanion.hit.implementation.*;
+import fr.brandon.scvicombocompanion.utils.Files;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
